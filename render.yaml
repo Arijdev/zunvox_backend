@@ -13,3 +13,4 @@ services:
         value: http://127.0.0.1:3000
       - key: GOTENBERG_TIMEOUT_MS
         value: 60000
+
