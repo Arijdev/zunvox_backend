@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: zunvox-backend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: starter # LibreOffice and Chromium require at least 1GB RAM
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: GOTENBERG_URL
+        value: http://127.0.0.1:3000
+      - key: GOTENBERG_TIMEOUT_MS
+        value: 60000

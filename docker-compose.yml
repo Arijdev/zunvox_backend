@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Option 1: Unified All-in-One Service (Node.js + Gotenberg in one container)
+  unified-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zunvox-unified-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - GOTENBERG_URL=http://127.0.0.1:3000
+    restart: unless-stopped
+
+  # Option 2: Decoupled Multi-Container Setup (Alternative microservices layout)
+  # Uncomment the blocks below if you prefer isolated microservices:
+  #
+  # gotenberg:
+  #   image: gotenberg/gotenberg:8
+  #   container_name: zunvox-gotenberg
+  #   ports:
+  #     - "3000:3000"
+  #   restart: unless-stopped
+  #
+  # api:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile.node
+  #   container_name: zunvox-api
+  #   ports:
+  #     - "5000:5000"
+  #   environment:
+  #     - NODE_ENV=production
+  #     - PORT=5000
+  #     - GOTENBERG_URL=http://gotenberg:3000
+  #   depends_on:
+  #     - gotenberg
+  #   restart: unless-stopped
+

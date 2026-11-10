@@ -1,0 +1,35 @@
+{
+  "name": "zunvox-backend",
+  "version": "1.0.0",
+  "description": "Production-ready Node.js & Express backend for document conversion via Gotenberg and image processing with Sharp",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node test/test-image.js"
+  },
+  "keywords": [
+    "express",
+    "gotenberg",
+    "sharp",
+    "pdf-conversion",
+    "image-processing",
+    "document-processing"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "form-data": "^4.0.2",
+    "helmet": "^8.0.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.33.5",
+    "uuid": "^11.1.0"
+  }
+}
